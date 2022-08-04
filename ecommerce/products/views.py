@@ -12,6 +12,16 @@ def products(request):
 
 
     return render(request,'products.html', context=context)
+    
+    
+    #def products(request):
+        #products = Products.objects.create(name='Coca Cola 16ml',price='2',email='products@gmail.com' )
+        #context = {
+
+        #'products': products
+        #}
+
+        #return render(request,'products.html', context=context)
 
 
 
@@ -21,5 +31,3 @@ def products(request):
 
 
 
-#def products(request):
-    #return HttpResponse("Hola productos")

@@ -1,1 +1,8 @@
-<h1>Hola como estan</h1>
+{% for products in products %}
+
+<h1>El nombre  del producto es {{products.name}}</h1>
+<h1>El precio del producto es {{products.price}}</h1>
+<h1>La hora es {{products.creation_date}}</h1>
+<h1>El email del producto es {{products.email}}</h1>
+   
+{% endfor %}
