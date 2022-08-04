@@ -1,6 +1,25 @@
+from multiprocessing import context
 from django.shortcuts import render
-from django.http import HttpResponse
-# Create your views here.
+from products.models import Products
+
 
 def products(request):
-    return HttpResponse("Hola productos")
+    products = Products.objects.all()
+    context = {
+
+        'products': products
+    }
+
+
+    return render(request,'products.html', context=context)
+
+
+
+
+
+
+
+
+
+#def products(request):
+    #return HttpResponse("Hola productos")
