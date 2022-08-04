@@ -1,8 +1,10 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from ecommerce.ecommerce.views import products
+from products.views import familia
+
 
 urlpatterns = [
-
-    path('products/', include('products.urls')),
-    path("admin/", admin.site.urls),
+    path('admin/', admin.site.urls),
+    path('products/', products, name='familia')
 ]
