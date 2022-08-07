@@ -45,25 +45,25 @@
         </div>
       </nav>
 
-     
+     <div class="row justify-content-center">
 
-    {% for products in products %}
+      {% for products in products %}
 
-    <div class="card" style="width: 18rem;">
-        <img src="https://i0.wp.com/edtechreviews.net/wp-content/uploads/2021/12/coderhouse_logo.png?resize=750%2C750&ssl=1S" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{products.name}}</h5>
-          <p class="card-text">Precio:{{products.price}}</p>
-          <p class="card-text">Email:{{products.email}}</p>
-          <p class="card-text">Hora:{{products.creation_date}}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="card" style="width: 18rem; margin:10px;">
+          <img src="https://i0.wp.com/edtechreviews.net/wp-content/uploads/2021/12/coderhouse_logo.png?resize=750%2C750&ssl=1S" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{products.name}}</h5>
+            <p class="card-text">Precio:{{products.price}}</p>
+            <p class="card-text">Email:{{products.email}}</p>
+            <p class="card-text">Hora:{{products.creation_date}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
-      </div>
 
 
-   
-    {% endfor %}
-
+    
+      {% endfor %}
+    </div>
 </body>
 
 
