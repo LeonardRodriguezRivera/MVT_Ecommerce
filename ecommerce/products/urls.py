@@ -4,7 +4,7 @@ from products.views import products, distributor, shop, create_product, create_s
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    
     path('products/', products, name='products'), 
     path('distributor/', distributor, name='distributor'),
     path('shop/', shop, name='shop'),
