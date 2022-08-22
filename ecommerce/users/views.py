@@ -19,7 +19,7 @@ def login_request(request):
                 return render(request, 'index.html', context = context)
 
         form = AuthenticationForm()
-        return render(request, 'Users/login.html', {'error': 'Formulario invalido', 'form': form})
+        return render(request, 'Users/login.html', {'error': 'Username o Password Invalido', 'form': form})
 
     elif request.method == 'GET':
         form = AuthenticationForm()
