@@ -28,16 +28,15 @@ def login_request(request):
 
 def register(request):
     if request.method == 'POST':
-       form = User_registration_form(request.POST)
-       if form.is_valid():
+        form = User_registration_form(request.POST)
+        if form.is_valid():
             form.save()
             return redirect('login')
-       else:
+        else:
             context = {'errors':form.errors}
             form = User_registration_form()
             context['form'] = form
             return render(request, 'users/register.html', context)
-
 
     elif request.method == 'GET':
         form = User_registration_form()
