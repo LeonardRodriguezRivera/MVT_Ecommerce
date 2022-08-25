@@ -34,7 +34,8 @@ def create_product(request):
             Products.objects.create(
                 name= form.cleaned_data['name'],
                 price = form.cleaned_data['price'],
-                email = form.cleaned_data['email']
+                email = form.cleaned_data['email'],
+                stock = form.cleaned_data['stock']
             )
             return redirect(products)
 
