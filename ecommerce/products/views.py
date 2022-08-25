@@ -86,6 +86,6 @@ def create_distributor(request):
 
 def search_products(request):
     search = request.GET['search']
-    products = Products.objects.filter(name=search)
+    products = Products.objects.filter(name__icontains=search)
     context = {'products' : products}
     return render(request, 'search_products.html', context = context )
