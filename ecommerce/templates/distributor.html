@@ -1,5 +1,10 @@
-{% extends "base/base.html"%} {% block title %} Distribuidores {% endblock %} {%
-block rute %} "/products/products/" {% endblock %} {% block dynamic_content %}
+{% extends "base/base.html"%}
+
+<div>{% block title %} Distribuidores {% endblock %}</div>
+
+<div>{% block rute %} "/products/products/" {% endblock %}</div>
+
+{% block dynamic_content %}
 <div class="row justify-content-center">
   {% for distributor in distributor %}
 

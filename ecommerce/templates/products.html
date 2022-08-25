@@ -1,5 +1,8 @@
-{% extends "base/base.html"%} {% block title %} Productos {% endblock %} {%
-block dynamic_content %}
+{% extends "base/base.html"%}
+
+<div>{% block title %} Productos {% endblock %}</div>
+
+{% block dynamic_content %}
 <div class="row justify-content-center">
   {% for products in products %}
 
