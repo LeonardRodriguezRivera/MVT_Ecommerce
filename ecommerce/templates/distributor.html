@@ -1,25 +1,23 @@
-{% extends "base/base.html"%}
+{% extends "base/base.html"%} {% block title %} Distribuidores {% endblock %} {%
+block rute %} "/products/products/" {% endblock %} {% block dynamic_content %}
+<div class="row justify-content-center">
+  {% for distributor in distributor %}
 
-{% block title %} Distribuidores {% endblock %}
-
-{% block rute %} "/products/products/" {% endblock %}
-
-{% block dynamic_content %}
-  <div class="row justify-content-center">
-
-    {% for distributor in distributor %}
-
-      <div class="card" style="width: 18rem; margin:10px;">
-        <img src="https://www.liderdelemprendimiento.com/wp-content/uploads/2018/06/Diferencias-entre-distribuidores-mayoristas-y-minoristas.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{distributor.name}}</h5>
-          <p class="card-text">Precio:{{distributor.zone}}</p>
-          <p class="card-text">Email:{{distributor.email}}</p>
-          <p class="card-text">Hora:{{distributor.creation_date}}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-    {% endfor %}
+  <div class="card" style="width: 18rem; margin: 10px">
+    <img
+      src="https://www.liderdelemprendimiento.com/wp-content/uploads/2018/06/Diferencias-entre-distribuidores-mayoristas-y-minoristas.jpg"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{distributor.name}}</h5>
+      <p class="card-text">Precio:{{distributor.zone}}</p>
+      <p class="card-text">Email:{{distributor.email}}</p>
+      <p class="card-text">Hora:{{distributor.creation_date}}</p>
+      <a href="#" class="btn btn-primary">Comprar</a>
+    </div>
   </div>
+
+  {% endfor %}
+</div>
 {% endblock %}
