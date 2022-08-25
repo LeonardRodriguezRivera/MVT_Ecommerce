@@ -1,0 +1,28 @@
+{% extends "base/base.html"%}
+
+<div>{% block title %} Busqueda de productos {% endblock %}</div>
+
+{% block dynamic_content %}
+<div class="row justify-content-center">
+  {% for products in products %}
+
+  <div class="card" style="width: 18rem; margin: 10px">
+    <img
+      src="https://coca-colafemsa.com/wp-content/uploads/2019/12/reflejo_pag1.png"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{products.name}}</h5>
+      <p class="card-text">Precio:{{products.price}}</p>
+      <p class="card-text">Stock:{{products.stock}}</p>
+      <p class="card-text">Email:{{products.email}}</p>
+      <p class="card-text">Hora:{{products.creation_date}}</p>
+
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+{% endblock %}

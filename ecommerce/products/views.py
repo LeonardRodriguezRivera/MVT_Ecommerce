@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from multiprocessing import context
 from django.shortcuts import render, redirect
 from products.models import Products, Shop, Distributor
@@ -83,5 +84,8 @@ def create_distributor(request):
         return render(request, 'creates/create_distributor.html', context=context)          
 
 
-
-
+def search_products(request):
+    search = request.GET['search']
+    products = Products.objects.filter(name=search)
+    context = {'products' : products}
+    return render(request, 'search_products.html', context = context )

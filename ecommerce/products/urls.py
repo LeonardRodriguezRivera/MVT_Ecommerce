@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from products.views import products, distributor, shop, create_product, create_shop, create_distributor
+from products.views import products, distributor, shop, create_product, create_shop, create_distributor, search_products
 
 
 urlpatterns = [
@@ -10,5 +10,6 @@ urlpatterns = [
     path('shop/', shop, name='shop'),
     path('create-product/', create_product, name='create_product'),
     path('create-shop/', create_shop, name='create_shop'),
-    path('create-distributor/', create_distributor, name='create_distributor') 
+    path('create-distributor/', create_distributor, name='create_distributor'),
+    path('search-products/', search_products, name= 'search_products') 
 ]
