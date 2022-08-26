@@ -19,3 +19,6 @@ class Shop(models.Model):
     location = models.CharField(max_length=40)
     creation_date = models.DateField(auto_now_add=True, null=True, blank=True)
     email = models.EmailField()
+
+
+

@@ -1,0 +1,13 @@
+{% extends "base/base.html"%}
+
+<div>{% block title %} Detalle de productos {% endblock %}</div>
+
+{% block dynamic_content %}
+
+<div class="card-body justify-content-center">
+  <h5 class="card-title">Nombre del producto: {{products.name}}</h5>
+  <p class="card-text">Cargado el dia: {{products.creation_date}}</p>
+  <a href="/products/products/" class="btn btn-secondary">Volver</a>
+</div>
+
+{% endblock %}

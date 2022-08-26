@@ -5,6 +5,9 @@ from django.shortcuts import render, redirect
 from products.models import Products, Shop, Distributor
 from products.forms import Formulario_productos, Formulario_shop, Formulario_distributor
 
+from django.views.generic import DetailView
+
+
 def products(request):
     products = Products.objects.all()
     context = {
@@ -103,8 +106,7 @@ def delete_product(request, pk):
         product.delete()
         return redirect(products)
     
-
-
+    
 def update_product(request, pk):
     if request.method == 'POST':
         form = Formulario_productos(request.POST)
@@ -116,7 +118,6 @@ def update_product(request, pk):
             product.email = form.cleaned_data['email']
             product.save()
             return redirect(products)
-
     elif request.method == 'GET':
         product = Products.objects.get(id=pk)
         form = Formulario_productos(initial= {
@@ -127,3 +128,12 @@ def update_product(request, pk):
         })
         context = {'form': form}
         return render(request, 'update_product.html', context=context)
+
+
+# Vista Detalle a partir de clase
+
+class Details_product(DetailView):
+     model = Products
+     template_name = 'details_products.html'
+
+
