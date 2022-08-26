@@ -1,0 +1,23 @@
+{% extends "base/base.html"%}
+
+<div>{% block title %} Actualización de productos{% endblock %}</div>
+
+<div>{% block rute %} "/products/products/" {% endblock %}</div>
+
+<div>
+  {% block dynamic_content %}
+  <h1 class="row justify-content-center">
+    Cargue aquí las modificaciones del producto
+  </h1>
+  <div class="row justify-content-center">
+    <form action="" method="POST">
+      {% csrf_token %}
+
+      <table>
+        {{form.as_table}}
+      </table>
+      <p><input type="submit" value="Enviar" /></p>
+    </form>
+  </div>
+  {% endblock %}
+</div>
