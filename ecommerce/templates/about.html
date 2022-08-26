@@ -4,4 +4,32 @@
 
 <div>{% block rute %} "/products/about/" {% endblock %}</div>
 
-{% block dynamic_content %} {% endblock %}
+{% block dynamic_content %}
+<div class="row justify-content-center">
+  <h1 class="text-center text-md-start mt-5">Sobre nosotros</h1>
+
+  <p class="text-center mt-2 md-2 ml-5 mr-5 text-secondary">
+    Somos una organización que se forma permanentemente para estar a la altura
+    de las necesidades actuales en el mundo de la tecnología de la información y
+    comunicación.
+  </p>
+
+  <h4 class="text-center col-md-7 col-lg-7 col-xl-7 mx-auto mb-4">
+    El equipo se compone por:
+  </h4>
+
+  <div class="col-md-7 col-lg-7 col-xl-7 mx-auto mb-4">
+    <p class="text-center mt-2 md-2 ml-5 mr-5 text-secondary">
+      Leonard Rodriguez Rivera, de Puerto Rico
+    </p>
+
+    <p class="text-center mt-2 md-2 ml-5 mr-5 text-secondary">
+      Lery Deniz, de España.
+    </p>
+
+    <p class="text-center mt-2 md-2 ml-5 mr-5 text-secondary">
+      Leonardo Mansilla, de Argentina.
+    </p>
+  </div>
+</div>
+{% endblock %}
