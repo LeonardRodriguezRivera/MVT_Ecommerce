@@ -90,3 +90,15 @@ def search_products(request):
     products = Products.objects.filter(name__icontains=search)
     context = {'products' : products}
     return render(request, 'search_products.html', context = context )
+
+
+def delete_product(request, pk):
+    if request.method == 'GET':
+        product = Products.objects.get(pk=pk)
+        context = {'product': product}
+        return render(request, 'delete_product.html', context=context)
+    elif request.method == 'POST':
+        product = Products.objects.get(pk=pk)
+        product.delete()
+        return redirect(products)
+    
