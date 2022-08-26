@@ -1,6 +1,6 @@
 {% extends "base/base.html"%}
 
-<div>{% block title %} Borrado de productos {% endblock %}</div>
+<div>{% block title %} Eliminación de productos {% endblock %}</div>
 
 <div>
   {% block dynamic_content %}
@@ -9,7 +9,7 @@
   <div>
     <div class="text-center mt-2 md-2 ml-5 mr-5 text-secondary">
       <div>
-        <h5>Nombre: {{product.name}}</h5>
+        <h5>Nombre del producto: {{product.name}}</h5>
         <p>Precio: {{product.price}}</p>
         <p>Stock: {{product.stock}}</p>
       </div>
