@@ -1,27 +1,33 @@
-{% extends "base/base.html" %} {% block dynamic_content %}
+{% extends "base/base.html" %}
 
-<h1 class="text-center text-md-start mt-5">Vos soñás, nosotros lo hacemos</h1>
+<div>{% block title %} Index {% endblock %}</div>
 
-<h2 class="text-center mt-5 md-5 text-secondary">Conozca nuestros productos</h2>
-<p class="text-center mt-1 md-1 text-secondary">
-  Comercializamos productos se caracterizados por su calidad.
-</p>
+<div>
+  {% block dynamic_content %}
 
-<h2 class="text-center mt-5 md-5 text-secondary">Conozca nuestros comercios</h2>
-<p class="text-center mt-1 md-1 text-secondary">
-  Nuestras cadenas de comercios contienen las mejores criticas y son
-  recomendadas por la totalidad de los usuarios.
-</p>
+  <h1 class="text-center text-md-start mt-5">Vos soñás, nosotros lo hacemos</h1>
 
-<h2 class="text-center mt-5 md-5 text-secondary">
-  Conozca nuestros distribuidores
-</h2>
-<p class="text-center mt-1 md-1 text-secondary">
-  Nuestros distribuidores operan bajo las mejores normas de seguridad.
-</p>
+  <h2 class="text-center mt-5 md-5 text-secondary">
+    Conozca nuestros productos
+  </h2>
+  <p class="text-center mt-1 md-1 text-secondary">
+    Comercializamos productos se caracterizados por su calidad.
+  </p>
 
-{% if message %}
+  <h2 class="text-center mt-5 md-5 text-secondary">
+    Conozca nuestros comercios
+  </h2>
+  <p class="text-center mt-1 md-1 text-secondary">
+    Nuestras cadenas de comercios contienen las mejores criticas y son
+    recomendadas por la totalidad de los usuarios.
+  </p>
 
-<h2>{{message}}</h2>
+  <h2 class="text-center mt-5 md-5 text-secondary">
+    Conozca nuestros distribuidores
+  </h2>
+  <p class="text-center mt-1 md-1 text-secondary">
+    Nuestros distribuidores operan bajo las mejores normas de seguridad.
+  </p>
 
-{% endif %} {% endblock %}
+  {% endblock %}
+</div>
