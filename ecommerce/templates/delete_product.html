@@ -12,14 +12,14 @@
         <h5>Nombre del producto: {{product.name}}</h5>
         <p>Precio: {{product.price}}</p>
         <p>Stock: {{product.stock}}</p>
+        <div class="text-center mt-2 md-2 ml-5 mr-5 text-secondary">
+          <form action="" method="POST">
+            {% csrf_token %}
+            <p><input type="submit" value="Borrar" class="btn btn-danger" /></p>
+          </form>
+        </div>
+        <a href="/products/products/" class="btn btn-secondary">Volver</a>
       </div>
-    </div>
-
-    <div class="text-center mt-2 md-2 ml-5 mr-5 text-secondary">
-      <form action="" method="POST">
-        {% csrf_token %}
-        <p><input type="submit" value="Borrar" /></p>
-      </form>
     </div>
   </div>
   {% endblock %}

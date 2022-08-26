@@ -2,12 +2,17 @@
 
 <div>{% block title %} Detalle de productos {% endblock %}</div>
 
-{% block dynamic_content %}
+<div>
+  {% block dynamic_content %}
+  <h1 class="row justify-content-center">Detalle del carga del producto</h1>
 
-<div class="card-body justify-content-center">
-  <h5 class="card-title">Nombre del producto: {{products.name}}</h5>
-  <p class="card-text">Cargado el dia: {{products.creation_date}}</p>
-  <a href="/products/products/" class="btn btn-secondary">Volver</a>
+  <div class="text-center mt-2 md-2 ml-5 mr-5 text-secondary">
+    <div>
+      <h5>Nombre del producto: {{products.name}}</h5>
+      <p>Cargado el dia: {{products.creation_date}}</p>
+      <a href="/products/products/" class="btn btn-secondary">Volver</a>
+    </div>
+  </div>
+
+  {% endblock %}
 </div>
-
-{% endblock %}
