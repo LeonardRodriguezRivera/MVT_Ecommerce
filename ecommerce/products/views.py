@@ -105,6 +105,19 @@ def delete_product(request, pk):
         product = Products.objects.get(pk=pk)
         product.delete()
         return redirect(products)
+
+
+def delete_distributor(request, pk):
+    if request.method == 'GET':
+        distribut = Distributor.objects.get(pk=pk)
+        context = {'distribut': distribut}
+        return render(request, 'delete_distributor.html', context=context)
+    elif request.method == 'POST':
+        distribut = Distributor.objects.get(pk=pk)
+        distribut.delete()
+        return redirect(distributor)
+
+
     
     
 def update_product(request, pk):

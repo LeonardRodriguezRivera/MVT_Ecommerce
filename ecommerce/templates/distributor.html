@@ -15,11 +15,13 @@
       alt="..."
     />
     <div class="card-body">
-      <h5 class="card-title">{{distributor.name}}</h5>
-      <p class="card-text">Precio:{{distributor.zone}}</p>
-      <p class="card-text">Email:{{distributor.email}}</p>
-      <p class="card-text">Hora:{{distributor.creation_date}}</p>
-      <a href="#" class="btn btn-primary">Comprar</a>
+      <h5 class="card-title">Nombre: {{distributor.name}}</h5>
+      <p class="card-text">Zona: {{distributor.zone}}</p>
+      <p class="card-text">Email: {{distributor.email}}</p>
+      <p class="card-text">Dia de creación: {{distributor.creation_date}}</p>
+      <a href="../delete-distributor/{{distributor.pk}}" class="btn btn-danger"
+        >Borrar</a
+      >
     </div>
   </div>
 
