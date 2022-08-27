@@ -49,9 +49,7 @@ def create_product(request):
         return render(request, 'creates/create_products.html', context=context) 
 
 
-
 def create_shop(request): 
-
     if request.method == 'POST':
         form = Formulario_shop(request.POST)
 
@@ -67,7 +65,6 @@ def create_shop(request):
         form = Formulario_shop()
         context = {'form':form}
         return render(request, 'creates/create_shop.html', context=context)         
-
 
 
 def create_distributor(request): 
