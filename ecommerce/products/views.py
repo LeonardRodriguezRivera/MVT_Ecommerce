@@ -34,63 +34,68 @@ def shop(request):
     }
     return render(request,'shop.html', context=context)    
 
-
+@login_required 
 def create_product(request): 
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            form = Formulario_productos(request.POST)
+            if form.is_valid():
+                Products.objects.create(
+                    name= form.cleaned_data['name'],
+                    price = form.cleaned_data['price'],
+                    email = form.cleaned_data['email'],
+                    stock = form.cleaned_data['stock']
+                )
+                return redirect(products)
 
-    if request.method == 'POST':
-        form = Formulario_productos(request.POST)
+        elif request.method == 'GET':
+            form = Formulario_productos()
+            context = {'form':form}
+            return render(request, 'creates/create_products.html', context=context)
+    else:
+        return redirect('login') 
 
-        if form.is_valid():
-            Products.objects.create(
-                name= form.cleaned_data['name'],
-                price = form.cleaned_data['price'],
-                email = form.cleaned_data['email'],
-                stock = form.cleaned_data['stock']
-            )
-            return redirect(products)
+@login_required 
+def create_shop(request):
+    if request.user.is_superuser: 
+        if request.method == 'POST':
+            form = Formulario_shop(request.POST)
 
-    elif request.method == 'GET':
-        form = Formulario_productos()
-        context = {'form':form}
-        return render(request, 'creates/create_products.html', context=context) 
+            if form.is_valid():
+                Shop.objects.create(
+                    name= form.cleaned_data['name'],
+                    location = form.cleaned_data['location'],
+                    email = form.cleaned_data['email']
+                )
+                return redirect(shop)
 
+        elif request.method == 'GET':
+            form = Formulario_shop()
+            context = {'form':form}
+            return render(request, 'creates/create_shop.html', context=context)         
+    else:
+        return redirect('login') 
 
-def create_shop(request): 
-    if request.method == 'POST':
-        form = Formulario_shop(request.POST)
+@login_required 
+def create_distributor(request):
+    if request.user.is_superuser:  
+        if request.method == 'POST':
+            form = Formulario_distributor(request.POST)
 
-        if form.is_valid():
-            Shop.objects.create(
-                name= form.cleaned_data['name'],
-                location = form.cleaned_data['location'],
-                email = form.cleaned_data['email']
-            )
-            return redirect(shop)
+            if form.is_valid():
+                Distributor.objects.create(
+                    name= form.cleaned_data['name'],
+                    zone = form.cleaned_data['zone'],
+                    email = form.cleaned_data['email']
+                )
+                return redirect(distributor)
 
-    elif request.method == 'GET':
-        form = Formulario_shop()
-        context = {'form':form}
-        return render(request, 'creates/create_shop.html', context=context)         
-
-
-def create_distributor(request): 
-
-    if request.method == 'POST':
-        form = Formulario_distributor(request.POST)
-
-        if form.is_valid():
-            Distributor.objects.create(
-                name= form.cleaned_data['name'],
-                zone = form.cleaned_data['zone'],
-                email = form.cleaned_data['email']
-            )
-            return redirect(distributor)
-
-    elif request.method == 'GET':
-        form = Formulario_distributor()
-        context = {'form':form}
-        return render(request, 'creates/create_distributor.html', context=context)          
-
+        elif request.method == 'GET':
+            form = Formulario_distributor()
+            context = {'form':form}
+            return render(request, 'creates/create_distributor.html', context=context)          
+    else:
+        return redirect('login') 
 
 def search_products(request):
     search = request.GET['search']
