@@ -1,27 +1,17 @@
 {% extends "base/base.html"%}
 
-{% block title %} 
-Register
-{% endblock %}
+<div>{% block title %} Register {% endblock %}</div>
 
+<div>
+  {% block dynamic_content %}
+  <form action="" method="POST">
+    {% csrf_token %}
 
+    <table>
+      {{form.as_table}}
+    </table>
+    <p><input type="submit" value="Registrate" /></p>
+  </form>
 
-
-{% block dynamic_content %}
-
-  
-
-    <form action="" method="POST">
-        {% csrf_token %}
-
-        <table>
-            {{form.as_table}}
-        </table>
-        <p><input type="submit" value="Registrate"></p>
-
-    </form>
-
-      
-
-  
-{% endblock %}
+  {% endblock %}
+</div>
