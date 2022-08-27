@@ -17,6 +17,8 @@
       <p class="card-text">Precio:{{products.price}}</p>
       <p class="card-text">Stock:{{products.stock}}</p>
       <p class="card-text">Email:{{products.email}}</p>
+
+      {% if request.user.is_superuser %}
       <a href="../update-product/{{products.pk}}" class="btn btn-info m-1"
         >Editar</a
       >
@@ -24,8 +26,13 @@
         >Borrar</a
       >
       <a href="../details-product/{{products.pk}}" class="btn btn-secondary m-1"
-        >Detalle de carga</a
+        >Detalle de actualización</a
       >
+      {% else %}
+      <a href="../details-product/{{products.pk}}" class="btn btn-secondary m-1"
+        >Detalle de actualización</a
+      >
+      {% endif %}
     </div>
   </div>
 

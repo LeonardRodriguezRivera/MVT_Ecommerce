@@ -137,8 +137,6 @@ def delete_shop(request, pk):
         return redirect(shop)
 
 
-    
-    
 def update_product(request, pk):
     if request.method == 'POST':
         form = Formulario_productos(request.POST)
