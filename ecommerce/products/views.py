@@ -118,6 +118,17 @@ def delete_distributor(request, pk):
         return redirect(distributor)
 
 
+def delete_shop(request, pk):
+    if request.method == 'GET':
+        business = Shop.objects.get(pk=pk)
+        context = {'business': business}
+        return render(request, 'delete_shop.html', context=context)
+    elif request.method == 'POST':
+        business = Shop.objects.get(pk=pk)
+        business.delete()
+        return redirect(shop)
+
+
     
     
 def update_product(request, pk):

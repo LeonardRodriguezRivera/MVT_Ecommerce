@@ -1,0 +1,28 @@
+{% extends "base/base.html"%}
+
+<div>{% block title %} Eliminación de comercio {% endblock %}</div>
+
+<div>
+  {% block dynamic_content %}
+  <h1 class="row justify-content-center">COMERCIO A BORRAR</h1>
+
+  <div>
+    <div class="text-center mt-2 md-2 ml-5 mr-5 text-secondary">
+      <div>
+        <h5>Nombre del comercio: {{business.name}}</h5>
+        <p>Localidad: {{business.location}}</p>
+        <p>Email: {{business.email}}</p>
+        <div class="text-center mt-2 md-2 ml-5 mr-5 text-secondary">
+          <form action="" method="POST">
+            {% csrf_token %}
+            <p>
+              <input type="submit" value="Borrar" class="btn btn-danger m-1" />
+            </p>
+          </form>
+        </div>
+        <a href="/products/shop/" class="btn btn-secondary m-1">Volver</a>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</div>
