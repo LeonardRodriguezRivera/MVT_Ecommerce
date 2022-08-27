@@ -7,6 +7,8 @@ from products.forms import Formulario_productos, Formulario_shop, Formulario_dis
 
 from django.views.generic import DetailView
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 def products(request):
     products = Products.objects.all()
@@ -153,7 +155,7 @@ def update_product(request, pk):
 
 # Vista Detalle a partir de clase
 
-class Details_product(DetailView):
+class Details_product(LoginRequiredMixin, DetailView):
      model = Products
      template_name = 'details_products.html'
 
