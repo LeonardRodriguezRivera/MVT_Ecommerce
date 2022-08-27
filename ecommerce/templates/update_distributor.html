@@ -1,0 +1,24 @@
+{% extends "base/base.html"%}
+
+<div>{% block title %} Actualización de distribuidores{% endblock %}</div>
+
+<div>{% block rute %} "/products/distributor/" {% endblock %}</div>
+
+<div>
+  {% block dynamic_content %}
+  <h1 class="row justify-content-center">
+    Cargue aquí las modificaciones del distribuidor
+  </h1>
+  <div class="row justify-content-center">
+    <form action="" method="POST">
+      {% csrf_token %}
+
+      <table>
+        {{form.as_table}}
+      </table>
+      <p><input type="submit" class="btn btn-info m-1" value="Enviar" /></p>
+      <a href="/products/distributor/" class="btn btn-secondary m-1">Volver</a>
+    </form>
+  </div>
+  {% endblock %}
+</div>

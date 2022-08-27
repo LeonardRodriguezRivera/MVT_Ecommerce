@@ -160,10 +160,59 @@ def update_product(request, pk):
         return render(request, 'update_product.html', context=context)
 
 
+def update_distributor(request, pk):
+    if request.method == 'POST':
+        form = Formulario_distributor(request.POST)
+        if form.is_valid():
+            distribut = Distributor.objects.get(id=pk)
+            distribut.name = form.cleaned_data['name']
+            distribut.zone = form.cleaned_data['zone']
+            distribut.email = form.cleaned_data['email']
+            distribut.save()
+            return redirect(distributor)
+    elif request.method == 'GET':
+        distribut = Distributor.objects.get(id=pk)
+        form = Formulario_distributor(initial= {
+            'name': distribut.name,
+            'zone': distribut.zone,
+            'email': distribut.email
+        })
+        context = {'form': form}
+        return render(request, 'update_distributor.html', context=context)
+
+def update_shop(request, pk):
+    if request.method == 'POST':
+        form = Formulario_shop(request.POST)
+        if form.is_valid():
+            business = Shop.objects.get(id=pk)
+            business.name = form.cleaned_data['name']
+            business.location = form.cleaned_data['location']
+            business.email = form.cleaned_data['email']
+            business.save()
+            return redirect(shop)
+    elif request.method == 'GET':
+        business = Shop.objects.get(id=pk)
+        form = Formulario_shop(initial= {
+            'name': business.name,
+            'location': business.location,
+            'email': business.email,
+        })
+        context = {'form': form}
+        return render(request, 'update_shop.html', context=context)
+
+
 # Vista Detalle a partir de clase
 
 class Details_product(LoginRequiredMixin, DetailView):
      model = Products
      template_name = 'details_products.html'
+
+class Details_shop(LoginRequiredMixin, DetailView):
+     model = Shop
+     template_name = 'details_shop.html'
+
+class Details_distributor(LoginRequiredMixin, DetailView):
+     model = Distributor
+     template_name = 'details_distributor.html'
 
 

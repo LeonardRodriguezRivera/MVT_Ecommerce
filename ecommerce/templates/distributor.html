@@ -18,10 +18,29 @@
       <h5 class="card-title">Nombre: {{distributor.name}}</h5>
       <p class="card-text">Zona: {{distributor.zone}}</p>
       <p class="card-text">Email: {{distributor.email}}</p>
-      <p class="card-text">Dia de creación: {{distributor.creation_date}}</p>
-      <a href="../delete-distributor/{{distributor.pk}}" class="btn btn-danger"
+      {% if request.user.is_superuser %}
+      <a
+        href="../update-distributor/{{distributor.pk}}"
+        class="btn btn-info m-1"
+        >Editar</a
+      >
+      <a
+        href="../delete-distributor/{{distributor.pk}}"
+        class="btn btn-danger m-1"
         >Borrar</a
       >
+      <a
+        href="../details-distributor/{{distributor.pk}}"
+        class="btn btn-secondary m-1"
+        >Detalle de actualización</a
+      >
+      {% else %}
+      <a
+        href="../details-distributor/{{distributor.pk}}"
+        class="btn btn-secondary m-1"
+        >Detalle de actualización</a
+      >
+      {% endif %}
     </div>
   </div>
 

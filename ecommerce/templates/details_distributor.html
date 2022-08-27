@@ -1,0 +1,20 @@
+{% extends "base/base.html"%}
+
+<div>{% block title %} Detalle del distribuidor {% endblock %}</div>
+
+<div>
+  {% block dynamic_content %}
+  <h1 class="row justify-content-center">
+    Detalle de actualización del distribuidor
+  </h1>
+
+  <div class="text-center mt-2 md-2 ml-5 mr-5 text-secondary">
+    <div>
+      <h5>Nombre del distribuidor: {{distributor.name}}</h5>
+      <p>Actualizado el dia: {{distributor.creation_date}}</p>
+      <a href="/products/distributor/" class="btn btn-secondary">Volver</a>
+    </div>
+  </div>
+
+  {% endblock %}
+</div>
