@@ -13,5 +13,4 @@ class User_registration_form(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
-
         help_texts = {k:'' for k in fields} # Saca los comentarios de ayuda

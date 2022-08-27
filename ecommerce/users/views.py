@@ -5,6 +5,15 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from users.forms import User_registration_form
 
+""" def login(request):
+     return render(request,'users/login.html')
+     
+def register(request):
+     return render(request,'users/register.html') """
+
+def logout(request):
+     return render(request,'users/logout.html')
+
 
 def login_request(request):
     if request.method == 'POST':
