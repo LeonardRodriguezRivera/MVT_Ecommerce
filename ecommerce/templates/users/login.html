@@ -4,15 +4,24 @@
 
 <div>
   {% block dynamic_content %}
+  <div class="row justify-content-center m-1">
+    <div>
+      <h1>Iniciá sesión</h1>
+    </div>
+  </div>
 
-  <form action="" method="POST">
-    {% csrf_token %}
+  <div class="row justify-content-center">
+    <form action="" method="POST">
+      {% csrf_token %}
 
-    <table>
-      {{form.as_table}}
-    </table>
-    <p><input type="submit" value="Iniciar sesion" /></p>
-  </form>
+      <table>
+        {{form.as_table}}
+      </table>
+      <p>
+        <input type="submit" class="btn btn-info m-1" value="Iniciar sesion" />
+      </p>
+    </form>
+  </div>
 
   <p style="color: rgb(255, 0, 0)">{{error}}</p>
 

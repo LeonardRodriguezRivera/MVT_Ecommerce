@@ -1,18 +1,14 @@
 from email import message
 from django.shortcuts import render, redirect
 
+
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from users.forms import User_registration_form
 
-""" def login(request):
-     return render(request,'users/login.html')
-     
-def register(request):
-     return render(request,'users/register.html') """
 
-def logout(request):
-     return render(request,'users/logout.html')
+""" def logout(request):
+     return render(request,'users/logout.html') """
 
 
 def login_request(request):
@@ -46,7 +42,6 @@ def register(request):
             form = User_registration_form()
             context['form'] = form
             return render(request, 'users/register.html', context)
-
     elif request.method == 'GET':
         form = User_registration_form()
         return render(request, 'users/register.html', {'form': form})
