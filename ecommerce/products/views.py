@@ -8,8 +8,9 @@ from products.forms import Formulario_productos, Formulario_shop, Formulario_dis
 from django.views.generic import DetailView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
-
+@login_required 
 def products(request):
     products = Products.objects.all()
     context = {
@@ -17,6 +18,7 @@ def products(request):
     }
     return render(request,'products.html', context=context)
 
+@login_required 
 def distributor(request):
     distributor = Distributor.objects.all()
     context = {
@@ -24,13 +26,15 @@ def distributor(request):
     }
     return render(request,'distributor.html', context=context)
 
+@login_required 
 def shop(request):
     shop = Shop.objects.all()
     context = {
         'shop': shop
     }
     return render(request,'shop.html', context=context)    
-    
+
+
 def create_product(request): 
 
     if request.method == 'POST':
