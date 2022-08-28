@@ -9,11 +9,18 @@
   {% for shop in shop %}
 
   <div class="card" style="width: 18rem; margin: 10px">
-    <img
-      src="https://nbd.com.mx/images/Diseno-Locales-Comerciales.jpg"
-      class="card-img-top"
-      alt="..."
-    />
+    <div>
+      {% if shop.image %}
+      <img src="{{shop.image.url}}" class="card-img-top" alt="..." />
+      {% else %}
+      <img
+        src="https://coca-colafemsa.com/wp-content/uploads/2019/12/reflejo_pag1.png"
+        class="card-img-top"
+        alt="..."
+      />
+      {% endif %}
+    </div>
+
     <div class="card-body">
       <h5 class="card-title">Nombre: {{shop.name}}</h5>
       <p class="card-text">Locacion: {{shop.location}}</p>

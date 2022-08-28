@@ -11,9 +11,11 @@ class Formulario_shop(forms.Form):
     name = forms.CharField()
     location = forms.CharField()
     email = forms.EmailField()
+    image = forms.ImageField(required=False)
 
 class Formulario_distributor(forms.Form): 
     name = forms.CharField()
     zone = forms.CharField()
-    email = forms.EmailField() 
+    email = forms.EmailField()
+    image = forms.ImageField(required=False) 
  

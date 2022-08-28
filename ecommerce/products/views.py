@@ -60,13 +60,14 @@ def create_product(request):
 def create_shop(request):
     if request.user.is_superuser: 
         if request.method == 'POST':
-            form = Formulario_shop(request.POST)
+            form = Formulario_shop(request.POST, request.FILES)
 
             if form.is_valid():
                 Shop.objects.create(
                     name= form.cleaned_data['name'],
                     location = form.cleaned_data['location'],
-                    email = form.cleaned_data['email']
+                    email = form.cleaned_data['email'],
+                    image = form.cleaned_data['image']
                 )
                 return redirect(shop)
 
@@ -81,13 +82,14 @@ def create_shop(request):
 def create_distributor(request):
     if request.user.is_superuser:  
         if request.method == 'POST':
-            form = Formulario_distributor(request.POST)
+            form = Formulario_distributor(request.POST, request.FILES)
 
             if form.is_valid():
                 Distributor.objects.create(
                     name= form.cleaned_data['name'],
                     zone = form.cleaned_data['zone'],
-                    email = form.cleaned_data['email']
+                    email = form.cleaned_data['email'],
+                    image = form.cleaned_data['image']
                 )
                 return redirect(distributor)
 

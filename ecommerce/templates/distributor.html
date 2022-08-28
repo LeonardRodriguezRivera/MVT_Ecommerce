@@ -9,11 +9,18 @@
   {% for distributor in distributor %}
 
   <div class="card" style="width: 18rem; margin: 10px">
-    <img
-      src="https://www.liderdelemprendimiento.com/wp-content/uploads/2018/06/Diferencias-entre-distribuidores-mayoristas-y-minoristas.jpg"
-      class="card-img-top"
-      alt="..."
-    />
+    <div>
+      {% if distributor.image %}
+      <img src="{{distributor.image.url}}" class="card-img-top" alt="..." />
+      {% else %}
+      <img
+        src="https://coca-colafemsa.com/wp-content/uploads/2019/12/reflejo_pag1.png"
+        class="card-img-top"
+        alt="..."
+      />
+      {% endif %}
+    </div>
+
     <div class="card-body">
       <h5 class="card-title">Nombre: {{distributor.name}}</h5>
       <p class="card-text">Zona: {{distributor.zone}}</p>
