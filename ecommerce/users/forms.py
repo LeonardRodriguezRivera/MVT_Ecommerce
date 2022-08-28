@@ -7,8 +7,8 @@ from django import forms
 
 class User_registration_form(UserCreationForm):
     email = forms.EmailField(required=True)
-    password1 = forms.CharField(label = 'Password', widget=forms.PasswordInput, required=False)
-    password2 = forms.CharField(label = 'Password confirmation', widget=forms.PasswordInput, required=False)
+    password1 = forms.CharField(label = 'Password', widget=forms.PasswordInput)
+    password2 = forms.CharField(label = 'Password confirmation', widget=forms.PasswordInput)
     
     class Meta:
         model = User
@@ -23,8 +23,6 @@ class UserEditForm(UserCreationForm):
     last_name = forms.CharField(label = 'Agregar apellido', required=False)
     password1 = forms.CharField(label = 'Password', widget=forms.PasswordInput, required=False)
     password2 = forms.CharField(label = 'Password confirmation', widget=forms.PasswordInput, required=False)
-
-
 
     class Meta:
         model = User
