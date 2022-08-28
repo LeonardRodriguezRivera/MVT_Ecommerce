@@ -1,5 +1,4 @@
 {% extends "base/base.html"%}
-{% load static %}
 
 <div>{% block title %} Edite profile {% endblock %}</div>
 
@@ -16,13 +15,20 @@
     <table class="table" style="max-width:600px;">
       <thead class="thead-dark">
         <tr>
-          <th scope="col" colspan="2" class="text-center">Datos actuales</th>
+          <th scope="col" colspan="3" class="text-center">Datos actuales</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">Username</th>
           <td><i>{{user.username}}</i></td>
+          <td rowspan="5" style="width:1%">
+            {% if personal_information.image %}
+              <img src ='{{personal_information.image.url}}' style='max-width:200px;max-height:200px;'/>
+            {% else %}
+              <img src ='http://127.0.0.1:8000/media/images/unknown.jpg' style='max-width:200px;max-height:200px;'/>
+            {% endif %}
+          </td>
         </tr>
         <tr>
           <th scope="row">Nombre</th>
@@ -39,16 +45,6 @@
         <tr>
           <th scope="row">Teléfono</th>
           <td>{{personal_information.phone}}</td>
-        </tr>
-        <tr>
-          <th scope="row">Avatar</th>
-          <td>
-            {% if personal_information.image %}
-            <img src ='/static/images/unknown.jpg' style='width:300px !important;'/>
-            {% else %}
-            <img src ='{{personal_information.image.url}}'/>
-            {% endif %}
-          </td>
         </tr>
       </tbody>
     </table>
