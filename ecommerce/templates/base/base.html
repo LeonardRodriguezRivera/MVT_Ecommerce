@@ -34,6 +34,8 @@
           </li>
         </ul>
 
+
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
 
@@ -61,8 +63,6 @@
     </nav>
 
  
-
-
     {% block dynamic_content %}
 
     {% endblock %}
@@ -102,7 +102,7 @@
           <!-- Grid row -->
           <div class="row mt-3">
             <!-- Grid column -->
-            <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+            <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4 align-items-center">
               <!-- Content -->
               <h6 class="text-uppercase fw-bold mb-4">
                 <i class="fas fa-gem me-3 text-grayish"></i>Django & Python Developers
@@ -124,7 +124,7 @@
             <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
               <!-- Links -->
               <h6 class="text-uppercase fw-bold mb-4">
-                CARGA DE DATOS DESDE FORMULARIOS
+                CARGA DE ELEMENTOS Y PERFILES DE USUARIOS
               </h6>
               <p>
                 <a href="/products/create-product/" class="text-reset">Productos</a>
@@ -135,7 +135,16 @@
               <p>
                 <a href="/products/create-distributor/" class="text-reset">Distribuidores</a>
               </p>
+              <div>
+                {% if request.user.is_superuser %}
+                <a href="/admin/users/user_profile/" class="btn btn-light m-1"
+                  >Perfiles de usuario</a
+                >
+                {% else %}
+                {% endif %}
+              </div>
             </div>
+
             <!-- Grid column -->
     
             
@@ -164,3 +173,5 @@
 
 
 </html>
+
+

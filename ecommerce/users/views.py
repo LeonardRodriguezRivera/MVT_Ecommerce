@@ -1,14 +1,10 @@
 from email import message
 from django.shortcuts import render, redirect
-
+from django.http import HttpResponse
 
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from users.forms import User_registration_form
-
-
-""" def logout(request):
-     return render(request,'users/logout.html') """
 
 
 def login_request(request):
@@ -45,3 +41,9 @@ def register(request):
     elif request.method == 'GET':
         form = User_registration_form()
         return render(request, 'users/register.html', {'form': form})
+
+
+
+def show_profile(request):
+    if request.user.is_authenticated:
+        return HttpResponse(request.user.profile.phone)        
