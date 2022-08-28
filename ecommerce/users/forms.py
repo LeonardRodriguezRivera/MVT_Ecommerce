@@ -1,4 +1,4 @@
-from socket import fromshare
+#from socket import fromshare
 from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib.auth.models import User
@@ -22,10 +22,11 @@ class UserEditForm(User_registration_form):
     password1 = forms.CharField(label = 'Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label = 'Password confirmation', widget=forms.PasswordInput)
     last_name = forms.CharField(label = 'Agregar apellido', required=False )
+    city = forms.CharField(label = 'Ciudad', required=False )
     
     class Meta:
         model = User
-        fields = ('email', 'password1', 'password2', 'last_name')
+        fields = ('email', 'password1', 'password2', 'last_name', 'city')
         help_texts = {k:'' for k in fields}
     
 

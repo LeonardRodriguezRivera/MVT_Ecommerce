@@ -1,15 +1,70 @@
 {% extends "base/base.html"%}
+{% load static %}
 
 <div>{% block title %} Edite profile {% endblock %}</div>
 
+
 <div>
   {% block dynamic_content %}
-  <div class="row justify-content-center m-1">
+  <div class="row justify-content-center m-1" style="margin-top:80px !important">
     <div>
-      <h1>¡Buenas {{user}} ! Modificá tus datos:</h1>
+      <h1>¡Buenas {{user}}!</h1>
     </div>
   </div>
-  <div class="row justify-content-center">
+  
+  <div class="row justify-content-center" style="margin-top:40px;">
+    <table class="table" style="max-width:600px;">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" colspan="2" class="text-center">Datos actuales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Username</th>
+          <td><i>{{user.username}}</i></td>
+        </tr>
+        <tr>
+          <th scope="row">Nombre</th>
+          <td>{{user.name}} {{user.last_name}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Email</th>
+          <td>{{user.email}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Ciudad</th>
+          <td>{{personal_information.city}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Teléfono</th>
+          <td>{{personal_information.phone}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Avatar</th>
+          <td>
+            {% if personal_information.image %}
+            <img src ='/static/images/unknown.jpg' style='width:300px !important;'/>
+            {% else %}
+            <img src ='{{personal_information.image.url}}'/>
+            {% endif %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+  <div class="row justify-content-center m-1" style="margin-top:80px !important">
+    <div>
+      <h1>Modificá tus datos:</h1>
+    </div>
+  </div>
+
+  <div  style="margin-top:40px;" class="row justify-content-center">
     <form action="" method="POST">
       {% csrf_token %}
 

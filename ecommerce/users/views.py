@@ -60,14 +60,16 @@ def edit_profile(request):
             data = user_form.cleaned_data
 
             user.email = data['email']
-            user.password1 = data['password1']
-            user.password2 = data['password2']
+            user.password = data['password1']
+            user.city = data['city']
             user.save()
             return render(request,'index.html')
     else:
         user_form = UserEditForm(initial={'email': user.email})
+        personal_information = User_profile.objects.get(user_id = user.id)
+        context =  {'user_form': user_form, 'user': user, 'personal_information': personal_information}
     
-    return render(request, 'users/edit_profile.html', {'user_form': user_form, 'user': user})
+    return render(request, 'users/edit_profile.html', context=context)
 
 
 

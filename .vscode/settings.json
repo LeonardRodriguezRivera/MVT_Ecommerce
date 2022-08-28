@@ -1,0 +1,28 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 100,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:MVT_Ecommerce}/ecommerce/db.sqlite3",
+            "name": "db"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:MVT_Ecommerce}/ecommerce/db.sqlite3",
+            "name": "db"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:MVT_Ecommerce}/ecommerce/db.sqlite3",
+            "name": "db"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:MVT_Ecommerce}/ecommerce/db.sqlite3",
+            "name": "db"
+        }
+    ]
+}
