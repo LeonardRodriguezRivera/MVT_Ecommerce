@@ -8,6 +8,8 @@ from users.forms import User_registration_form, UserEditForm
 
 from users.models import User_profile
 
+from django.contrib.auth.decorators import login_required
+
 
 def login_request(request):
     if request.method == 'POST':
@@ -50,22 +52,22 @@ def show_profile(request):
     if request.user.is_authenticated:
         return HttpResponse(request.user.profile) 
 
-
+@login_required
 def edit_profile(request):
     user = request.user
     if request.method == 'POST':
         user_form = UserEditForm(request.POST)
         if user_form.is_valid():
-
             data = user_form.cleaned_data
-
             user.email = data['email']
+            user.first_name = data['first_name']
+            user.last_name = data['last_name']
             user.password1 = data['password1']
             user.password2 = data['password2']
             user.save()
             return render(request,'index.html')
     else:
-        user_form = UserEditForm(initial={'email': user.email})
+        user_form = UserEditForm(initial={'email': user.email })
     
     return render(request, 'users/edit_profile.html', {'user_form': user_form, 'user': user})
 
@@ -73,22 +75,6 @@ def edit_profile(request):
 
 
 
-
-""" def edit_profile(request, pk):
-    if request.method == 'POST':
-        user_registration_form = UserEditForm(request.POST)
-        if user_registration_form.is_valid():
-            user = User_profile.objects.get(id=pk)
-            user.email = user_registration_form.cleaned_data['email']
-            user.password1 = user_registration_form.cleaned_data['password1']
-            user.password2 = user_registration_form.cleaned_data['password2']
-            user.save()
-            return render(request,'users/login.html')
-    else:
-        user_registration_form = UserEditForm(initial={'email': user.email})
-    
-    return render(request, 'users/edit_profile.html', {'user_registration_form': user_registration_form, 'user': user})
- """
 
 
           
