@@ -17,7 +17,7 @@ class User_registration_form(UserCreationForm):
 
 
 
-class UserEditForm(User_registration_form):
+class UserEditForm(UserCreationForm):
     email = forms.EmailField(label = "Modificar email", required=False)
     password1 = forms.CharField(label = 'Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label = 'Password confirmation', widget=forms.PasswordInput)

@@ -8,6 +8,8 @@ from users.forms import User_registration_form, UserEditForm
 
 from users.models import User_profile
 
+from django.contrib.auth.decorators import login_required
+
 
 def login_request(request):
     if request.method == 'POST':
@@ -50,15 +52,13 @@ def show_profile(request):
     if request.user.is_authenticated:
         return HttpResponse(request.user.profile) 
 
-
+@login_required
 def edit_profile(request):
     user = request.user
     if request.method == 'POST':
         user_form = UserEditForm(request.POST)
         if user_form.is_valid():
-
             data = user_form.cleaned_data
-
             user.email = data['email']
             user.password = data['password1']
             user.city = data['city']
@@ -72,6 +72,7 @@ def edit_profile(request):
     return render(request, 'users/edit_profile.html', context=context)
 
 
+    return render(request, 'users/edit_profile.html', context=context)
 
 
 
