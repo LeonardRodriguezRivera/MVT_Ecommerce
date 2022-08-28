@@ -7,11 +7,18 @@
   {% for products in products %}
 
   <div class="card" style="width: 18rem; margin: 10px">
-    <img
-      src="https://coca-colafemsa.com/wp-content/uploads/2019/12/reflejo_pag1.png"
-      class="card-img-top"
-      alt="..."
-    />
+    <div>
+      {% if products.image %}
+      <img src="{{products.image.url}}" class="card-img-top" alt="..." />
+      {% else %}
+      <img
+        src="https://coca-colafemsa.com/wp-content/uploads/2019/12/reflejo_pag1.png"
+        class="card-img-top"
+        alt="..."
+      />
+      {% endif %}
+    </div>
+
     <div class="card-body">
       <h5 class="card-title">{{products.name}}</h5>
       <p class="card-text">Precio: {{products.price}}</p>

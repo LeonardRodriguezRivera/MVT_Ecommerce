@@ -5,6 +5,7 @@ class Formulario_productos(forms.Form):
     price = forms.FloatField()
     stock = forms.IntegerField()
     email = forms.EmailField()
+    image = forms.ImageField(required=False)
 
 class Formulario_shop(forms.Form):   
     name = forms.CharField()

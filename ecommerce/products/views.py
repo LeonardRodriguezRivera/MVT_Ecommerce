@@ -38,13 +38,14 @@ def shop(request):
 def create_product(request): 
     if request.user.is_superuser:
         if request.method == 'POST':
-            form = Formulario_productos(request.POST)
+            form = Formulario_productos(request.POST, request.FILES)
             if form.is_valid():
                 Products.objects.create(
                     name= form.cleaned_data['name'],
                     price = form.cleaned_data['price'],
                     email = form.cleaned_data['email'],
-                    stock = form.cleaned_data['stock']
+                    stock = form.cleaned_data['stock'],
+                    image = form.cleaned_data['image']
                 )
                 return redirect(products)
 

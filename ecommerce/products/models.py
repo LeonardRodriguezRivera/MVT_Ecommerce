@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 
 
@@ -7,6 +8,7 @@ class Products(models.Model):
     creation_date = models.DateField(auto_now_add=True, null=True, blank=True)
     stock = models.IntegerField()
     email = models.EmailField()
+    image = models.ImageField(upload_to = 'products/', null = True, blank = True)
 
 class Distributor(models.Model):
     name = models.CharField(max_length=40)
