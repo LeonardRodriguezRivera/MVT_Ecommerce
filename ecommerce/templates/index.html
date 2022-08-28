@@ -5,6 +5,18 @@
 <div>
   {% block dynamic_content %}
 
+  <div>
+    {% if request.user.is_authenticated %}
+    <h1 class="text-center text-md-start mt-5">
+      ¡Bienvenido {{ request.user}}!
+    </h1>
+    {% else %}
+    <h1 class="text-center text-md-start mt-5">
+      ¡Bienvenido! ¡Te invito a loggearte!
+    </h1>
+    {% endif %}
+  </div>
+
   <h1 class="text-center text-md-start mt-5">Vos soñás, nosotros lo hacemos</h1>
 
   <h2 class="text-center mt-5 md-5 text-secondary">
