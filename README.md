@@ -1,12 +1,12 @@
-Proyecto Ecommerce en el marco del curso Python y Django en Coderhouse.
+#Proyecto Ecommerce en el marco del curso Python y Django en Coderhouse.
 
 AGOSTO, 2022.
 
 INTEGRANTES:
 
-# Leonard Rodriguez Rivera /
-Leroy Deniz
-/ Leonardo Mansilla
+## Leonard Rodriguez Rivera /
+### Leroy Deniz
+/## Leonardo Mansilla
 
 Aqui un video con la presentacion de la plataforma:
 https://drive.google.com/file/d/1J8A8l2t1NY5Fu3qVoeu0BGquQIgeNUXx/view?usp=sharing
