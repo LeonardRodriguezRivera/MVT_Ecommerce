@@ -4,9 +4,9 @@ AGOSTO, 2022.
 
 INTEGRANTES:
 
-Leonard Rodriguez Rivera
+# Leonard Rodriguez Rivera /
 Leroy Deniz
-Leonardo Mansilla
+/ Leonardo Mansilla
 
 Aqui un video con la presentacion de la plataforma:
 https://drive.google.com/file/d/1J8A8l2t1NY5Fu3qVoeu0BGquQIgeNUXx/view?usp=sharing
