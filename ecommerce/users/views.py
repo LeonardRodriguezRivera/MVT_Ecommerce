@@ -60,38 +60,21 @@ def edit_profile(request):
         if user_form.is_valid():
             data = user_form.cleaned_data
             user.email = data['email']
-            user.password = data['password1']
-            user.city = data['city']
+            user.first_name = data['first_name']
+            user.last_name = data['last_name']
+            user.password1 = data['password1']
+            user.password2 = data['password2']
             user.save()
             return render(request,'index.html')
     else:
-        user_form = UserEditForm(initial={'email': user.email})
-        personal_information = User_profile.objects.get(user_id = user.id)
-        context =  {'user_form': user_form, 'user': user, 'personal_information': personal_information}
+        user_form = UserEditForm(initial={'email': user.email })
     
-    return render(request, 'users/edit_profile.html', context=context)
-
-
-    return render(request, 'users/edit_profile.html', context=context)
+    return render(request, 'users/edit_profile.html', {'user_form': user_form, 'user': user})
 
 
 
 
-""" def edit_profile(request, pk):
-    if request.method == 'POST':
-        user_registration_form = UserEditForm(request.POST)
-        if user_registration_form.is_valid():
-            user = User_profile.objects.get(id=pk)
-            user.email = user_registration_form.cleaned_data['email']
-            user.password1 = user_registration_form.cleaned_data['password1']
-            user.password2 = user_registration_form.cleaned_data['password2']
-            user.save()
-            return render(request,'users/login.html')
-    else:
-        user_registration_form = UserEditForm(initial={'email': user.email})
-    
-    return render(request, 'users/edit_profile.html', {'user_registration_form': user_registration_form, 'user': user})
- """
+
 
 
           

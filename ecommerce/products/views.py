@@ -100,6 +100,7 @@ def create_distributor(request):
     else:
         return redirect('login') 
 
+@login_required
 def search_products(request):
     search = request.GET['search']
     products = Products.objects.filter(name__icontains=search)
