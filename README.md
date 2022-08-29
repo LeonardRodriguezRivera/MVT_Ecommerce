@@ -1,4 +1,4 @@
-#Proyecto Ecommerce en el marco del curso Python y Django en Coderhouse.
+# Proyecto Ecommerce en el marco del curso Python y Django en Coderhouse.
 
 AGOSTO, 2022.
 
